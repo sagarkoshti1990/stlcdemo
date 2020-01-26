@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bb4dacacf43532a01bf1d3d6dd3bbe1",
+    "content-hash": "ccdda24d735d1abe3ff8949d80e98391",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1520,6 +1520,50 @@
                 "uuid"
             ],
             "time": "2019-12-17T08:18:51+00:00"
+        },
+        {
+            "name": "sagartakle/laracrud",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sagarkoshti1990/laracrud.git",
+                "reference": "1b3532ee114f72cac1fcbc5bb88c8a71e0b932ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sagarkoshti1990/laracrud/zipball/1b3532ee114f72cac1fcbc5bb88c8a71e0b932ad",
+                "reference": "1b3532ee114f72cac1fcbc5bb88c8a71e0b932ad",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Sagartakle\\Laracrud\\LaraCrudServiceProvider"
+                    ],
+                    "aliases": {
+                        "Crud": "Sagartakle\\Laracrud\\Helpers\\RouteHelper"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sagartakle\\Laracrud\\": "src/"
+                },
+                "files": []
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "sagar",
+                    "email": "sagarkoshti1990@gmail.com"
+                }
+            ],
+            "description": "make module crud in one command.",
+            "time": "2020-01-26T03:50:26+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5045,7 +5089,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "sagartakle/laracrud": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'phone_no', 'password',
     ];
 
     /**
@@ -36,4 +36,42 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getNameAttribute()
+    {
+        return $this->first_name." ".$this->last_name; 
+    }
+    public function isSuperAdmin()
+    {
+        return true;
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany('Sagartakle\Laracrud\Models\Role','role_user');
+    }
+    
+    /**
+     * get context by context_id of this user
+     * @return context
+     */
+    public function context()
+    {
+        return $this->morphTo();
+    }
+
+    /**
+     * get profile_pic by context_id of this user
+     * @return profile_pic
+     */
+    public function profile_pic()
+    {
+        if(isset($this->profile_pic) && $this->profile_pic != "0") {
+            return \CustomHelper::img($this->profile_pic);
+        } else if(isset($this->gender) && $this->gender == "Female") {
+            return asset('public/img/female_profile.jpg');
+        } else {
+            return asset('public/img/male_profile.jpg');
+        }
+    }
 }
